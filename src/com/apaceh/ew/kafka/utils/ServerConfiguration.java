@@ -33,7 +33,7 @@ public class ServerConfiguration {
 		InputStream inputStream = null;
 		try {
 			String base = this.getClass().getResource("/").getPath();
-			String confpath = base + "server.properties";
+			String confpath = base + "config.properties";
 			inputStream = new FileInputStream(new File(confpath));
 			conf = new Properties();
 			conf.load(inputStream);	

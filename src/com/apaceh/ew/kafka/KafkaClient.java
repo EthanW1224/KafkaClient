@@ -164,15 +164,15 @@ public class KafkaClient {
 	}
 
 	private KafkaClient() {
-		String[] hosts = ServerConfiguration.getConf().getProperty("oc.kafka.brokers").trim().split(",");
+		String[] hosts = ServerConfiguration.getConf().getProperty("ew.kafka.brokers").trim().split(",");
 		this.brokers.addAll(Arrays.asList(hosts));
-		this.port = Integer.valueOf(ServerConfiguration.getConf().getProperty("oc.kafka.broker.port").trim());
+		this.port = Integer.valueOf(ServerConfiguration.getConf().getProperty("ew.kafka.broker.port").trim());
 		initZK();
 	}
 
 	private void initZK() {
 		if (JaasUtils.isZkSecurityEnabled()) {
-			String jaas = ServerConfiguration.getConf().getProperty("oc.kafka.security.jaas.file");
+			String jaas = ServerConfiguration.getConf().getProperty("ew.kafka.security.jaas.file");
 			if (jaas == null || jaas.isEmpty()) {
 				throw new RuntimeException("Kafka jaas file not configured.");
 			}
